@@ -7,5 +7,7 @@ defmodule GiphifyApiWeb.Router do
 
   scope "/api", GiphifyApiWeb do
     pipe_through :api
+
+    resources "/greetings", GreetingController, except: [:new, :edit]
   end
 end
