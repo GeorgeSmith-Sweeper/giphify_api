@@ -13,17 +13,11 @@ defmodule GiphifyApiWeb.SearchController do
     |> Repo.insert()
   end
 
-  def create(conn, params) do
-    case store_query(params) do
-      {:ok, query} ->
-        conn
-        |> put_status(:created)
-        |> send_resp(201, query)
-      else
-        {:error, %{errors: errors}} ->
-          conn
-          |> put_status(:bad_request)
-          |> send_resp(422, errors)
+  def create(conn, %{"query" => query_params}) do
+    with {:ok, %Search{} = query} <- store_query(%{"query" => query_params}) do
+      conn
+      |> put_status(:created)
+      |> send_resp(201, "")
     end
   end
 end
