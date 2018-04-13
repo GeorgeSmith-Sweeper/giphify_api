@@ -8,9 +8,9 @@ defmodule GiphifyApi.Search do
     timestamps()
   end
 
-  def changeset(search, attrs) do
+  def changeset(search, params \\ %{}) do
     search
-    |> cast(attrs, [:query])
+    |> cast(params, [:query])
     |> validate_required([:query])
   end
 end
