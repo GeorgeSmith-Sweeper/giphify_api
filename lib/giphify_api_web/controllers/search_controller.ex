@@ -1,11 +1,8 @@
 defmodule GiphifyApiWeb.SearchController do
   use GiphifyApiWeb, :controller
 
-  import Ecto.Query, warn: false
   alias GiphifyApi.Repo
   alias GiphifyApi.Search
-
-  action_fallback GiphifyApiWeb.FallbackController
 
   def store_query(attrs) do
     %Search{}
