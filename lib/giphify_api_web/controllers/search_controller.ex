@@ -1,23 +1,26 @@
 defmodule GiphifyApiWeb.SearchController do
   use GiphifyApiWeb, :controller
 
-  alias GiphifyApi.Search
+  import Ecto.Query, warn: false
   alias GiphifyApi.Repo
+  alias GiphifyApi.Search
 
   action_fallback GiphifyApiWeb.FallbackController
 
-  defp store_search(attrs \\ %{}) do
+  def store_search(attrs \\ %{}) do
     %Search{}
     |> Search.changeset(attrs)
     |> Repo.insert()
   end
 
-  def create(conn, %{"search" => search_params}) do
+  def create(conn, %{"query" => search_params}) do
     with {:ok, %Search{} = search} <- store_search(search_params) do
       conn
       |> put_status(:created)
-      |> put_resp_header("location", search_path(conn, :show, greeting))
+      |> put_resp_header("location", search_path(conn, :show, search))
       |> render("show.json", search: search)
     end
   end
 end
+
+

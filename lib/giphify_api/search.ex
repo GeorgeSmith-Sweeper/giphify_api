@@ -1,4 +1,4 @@
-defmodule GiphifyApi.Searches do
+defmodule GiphifyApi.Search do
   use Ecto.Schema
   import Ecto.Changeset
 
