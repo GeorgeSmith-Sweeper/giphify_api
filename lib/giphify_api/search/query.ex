@@ -3,7 +3,7 @@ defmodule GiphifyApi.Query do
   alias GiphifyApi.Repo
   alias GiphifyApi.Search
 
-  def create_search(attrs) do
+  def create_search(attrs \\ %{}) do
     %Search{}
     |> Search.changeset(attrs)
     |> Repo.insert()

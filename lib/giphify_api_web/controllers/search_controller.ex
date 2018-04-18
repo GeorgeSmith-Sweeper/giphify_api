@@ -5,7 +5,7 @@ defmodule GiphifyApiWeb.SearchController do
   alias GiphifyApi.Search
 
   def create(conn, %{"query" => query_params}) do
-    with {:ok, %Search{} = query} <- Query.create_search(%{"query" => query_params}) do
+    with {:ok, %Search{}} <- Query.create_search(query_params) do
       conn
       |> put_status(:created)
       |> send_resp(201, "")
