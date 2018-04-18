@@ -1,7 +1,6 @@
 defmodule GiphifyApiWeb.SearchController do
   use GiphifyApiWeb, :controller
 
-  alias GiphifyApi.Repo
   alias GiphifyApi.Query
   alias GiphifyApi.Search
 

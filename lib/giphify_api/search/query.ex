@@ -9,7 +9,7 @@ defmodule GiphifyApi.Query do
     |> Repo.insert()
   end
 
-  def get_searches do
+  def list_search_queries do
     Repo.all(from s in Search, select: s.query)
   end
 end
