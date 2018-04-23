@@ -20,7 +20,8 @@ defmodule GiphifyApi.Mixfile do
   def application do
     [
       mod: {GiphifyApi.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools],
+      env: [giphify_api: :giphy_key]
     ]
   end
 
