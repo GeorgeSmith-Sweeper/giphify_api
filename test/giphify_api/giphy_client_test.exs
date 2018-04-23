@@ -6,11 +6,15 @@ defmodule GiphifyApi.GiphyClientTest do
   describe "wrapping giphy" do
 
     test "process_url/1 returns a fully built url" do
-      url = "anything"
-      expectedUrl = "https://api.giphy.com/v1/anything"
+      apiKey = "1010"
+      endpoint = "gifs/translate"
+      params = "Winter"
+      expectedUrl = "https://api.giphy.com/v1/gifs/translate?api_key=1010&s=Winter"
 
-      assert GiphyClient.process_url(url) == expectedUrl
+      assert GiphyClient.process_url(apiKey, params) == expectedUrl
     end
+
+    test ""
   end
 end
 
