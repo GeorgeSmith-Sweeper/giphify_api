@@ -3,7 +3,7 @@ defmodule GiphifyApi.Repo.Migrations.UpdateSearchesTable do
 
   def change do
     alter table(:searches) do
-      add :gif_url, :text
+      add :gif_url, :string
     end
   end
 end

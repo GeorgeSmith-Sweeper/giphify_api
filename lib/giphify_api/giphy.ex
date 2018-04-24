@@ -1,3 +1,4 @@
+
 defmodule GiphifyApi.Giphy do
   alias HTTPoison
 
@@ -11,7 +12,7 @@ end
 
 
 defmodule GiphifyApi.GiphySearch do
-  @callback get_gif(search_query :: String.t()) :: {:ok, map()}
+  @callback get_gif(search_query :: String.t()) :: {:ok, String.t()}
 end
 
 

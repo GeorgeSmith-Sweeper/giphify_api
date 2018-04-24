@@ -1,5 +1,6 @@
 defmodule GiphifyApi.QueryTest do
   use GiphifyApi.DataCase
+  import Mox
 
   alias GiphifyApi.Query
 
@@ -30,6 +31,11 @@ defmodule GiphifyApi.QueryTest do
     test "list_search_queries/0 returns a list of all queries in the database" do
       search = search_fixture()
       assert Query.list_search_queries() == [search.query]
+    end
+
+    test "get_last_query/0 returns the last query in the database" do
+      search = search_fixture()
+      assert Query.get_last_query() == search
     end
   end
 end
