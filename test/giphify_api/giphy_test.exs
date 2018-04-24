@@ -1,12 +1,17 @@
-defmodule GiphifyApi.GiphyClientTest do
+defmodule GiphifyApi.GiphyTest do
   use ExUnit.Case, async: true
+  import Mox
 
-  alias GiphifyApi.GiphyClient
+  # check that mock have been called
+  setup :verify_on_exit!
 
-  describe "getting a url from giphy"
-  test "a successful attempt returns the GifUrl" do
-    assert { :ok, new_conn } = GiphyClient.get_gif_url(conn, conn.params)
+  test "Mock client gets defined url" do
+    GiphifyApi.GiphySearch.MockClient
+    |> expect(:get_gif, fn _ ->
+        {:ok, %{embed_url: "https://itworks.com"}}
+      end)
+    assert GiphifyApi.Giphy.call() == {:ok, %{embed_url: "https://itworks.com"}}
   end
-
 end
+
 
