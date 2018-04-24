@@ -22,6 +22,11 @@ defmodule GiphifyApi.QueryTest do
       assert search.query == "Ham and Cheese"
     end
 
+    test "create_search/1 with invalid data" do
+      changeset = Search.changeset(%Search{}, @invalid_attrs)
+      refute changeset.valid?
+    end
+
     test "list_search_queries/0 returns a list of all queries in the database" do
       search = search_fixture()
       assert Query.list_search_queries() == [search.query]

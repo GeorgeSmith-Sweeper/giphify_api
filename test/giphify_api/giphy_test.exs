@@ -7,9 +7,10 @@ defmodule GiphifyApi.GiphyTest do
 
   test "Mock client gets defined url" do
     GiphifyApi.GiphySearch.MockClient
-    |> expect(:get_gif, fn _ ->
+    |> expect(:get_gif, fn "Dog" ->
         {:ok, %{embed_url: "https://itworks.com"}}
       end)
+
     assert GiphifyApi.Giphy.call() == {:ok, %{embed_url: "https://itworks.com"}}
   end
 end
