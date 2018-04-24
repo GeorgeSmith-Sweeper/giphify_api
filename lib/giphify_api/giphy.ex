@@ -3,17 +3,20 @@ defmodule GiphifyApi.Giphy do
 
   def call do
     search_query = "Dog"
-    get_gif_url(search_query)
+    GiphifyApi.GiphySearch.get_gif(search_query)
   end
+end
 
-  defp get_gif_url(search_query) do
+defmodule GiphifyApi.GiphySearch do
+  def get_gif(search_query) do
     api_key = Application.get_env(:giphify_api, :giphy_key)
-    IO.puts(api_key)
 
     url = "https://api.giphy.com/v1/gifs/translate?api_key=#{api_key}&s=#{search_query}"
 
     HTTPoison.get!(url)
       |> Map.get(:body)
-      |> Poison.decode!()
+      |> Poison.decode!(keys: :atoms)
+      |> Map.get(:data)
+      |> Map.get(:embed_url)
   end
 end
