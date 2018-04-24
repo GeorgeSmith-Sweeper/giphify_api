@@ -29,7 +29,7 @@ defmodule GiphifyApi.Giphy do
   @giphy_search Application.get_env(:giphify_api, :giphy_search)
   def call do
     search_query = "Dog"
-    GiphifyApi.GiphySearch.get_gif(search_query)
+    @giphy_search.get_gif(search_query)
   end
 end
 
@@ -39,8 +39,8 @@ defmodule GiphifyApi.GiphySearch do
 end
 
 
-defmodule GiphifyApi.GiphySearch.Http do
-  @behavior GiphifyApi.GiphySearch
+defmodule GiphifyApi.GiphySearch.HttpClient do
+  @behaviour GiphifyApi.GiphySearch
 
   def get_gif(search_query) do
     api_key = Application.get_env(:giphify_api, :giphy_key)
