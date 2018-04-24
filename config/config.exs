@@ -10,7 +10,7 @@ config :giphify_api,
   ecto_repos: [GiphifyApi.Repo],
   giphy_key:
 
-
+config :giphify_api, :giphy_search, GiphifyApi.GiphySearch.HttpClient
 # Configures the endpoint
 config :giphify_api, GiphifyApiWeb.Endpoint,
   url: [host: "localhost"],
