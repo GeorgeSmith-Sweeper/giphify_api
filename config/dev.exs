@@ -44,6 +44,3 @@ config :giphify_api, GiphifyApi.Repo,
   database: "giphify_api_dev",
   hostname: "localhost",
   pool_size: 10
-
-# import secret dev file
-import_config "dev.secret.exs"
