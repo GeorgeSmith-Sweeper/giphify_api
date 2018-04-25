@@ -20,7 +20,8 @@ defmodule GiphifyApi.Mixfile do
   def application do
     [
       mod: {GiphifyApi.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools],
+      env: [giphify_api: :giphy_key]
     ]
   end
 
@@ -38,7 +39,9 @@ defmodule GiphifyApi.Mixfile do
       {:phoenix_ecto, "~> 3.2"},
       {:postgrex, ">= 0.0.0"},
       {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"}
+      {:cowboy, "~> 1.0"},
+      {:httpoison, "~> 1.0"},
+      {:mox, "~> 0.3"}
     ]
   end
 

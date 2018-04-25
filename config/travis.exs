@@ -15,8 +15,8 @@ config :logger, level: :warn
 # Configure your database
 config :giphify_api, GiphifyApi.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "8thlight",
-  password: "123456",
+  username: "postgres",
+  password: "",
   database: "giphify_api_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

@@ -9,6 +9,9 @@ use Mix.Config
 config :giphify_api,
   ecto_repos: [GiphifyApi.Repo]
 
+config :giphify_api,
+  :giphy_search, GiphifyApi.GiphySearch.HttpClient
+
 # Configures the endpoint
 config :giphify_api, GiphifyApiWeb.Endpoint,
   url: [host: "localhost"],
