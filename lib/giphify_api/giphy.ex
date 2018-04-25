@@ -10,11 +10,9 @@ defmodule GiphifyApi.Giphy do
   end
 end
 
-
 defmodule GiphifyApi.GiphySearch do
   @callback get_gif(search_query :: String.t()) :: {:ok, String.t()}
 end
-
 
 defmodule GiphifyApi.GiphySearch.HttpClient do
   @behaviour GiphifyApi.GiphySearch

@@ -37,5 +37,14 @@ defmodule GiphifyApi.QueryTest do
       search = search_fixture()
       assert Query.get_last_query() == search
     end
+
+    test "store_gif_url/0 returns the " do
+    GiphifyApi.GiphySearch.MockClient
+    |> expect(:get_gif, fn "Dog" ->
+        "https://itworks.com"
+      end)
+      search = search_fixture()
+      assert Query.store_gif_url() == search
+    end
   end
 end
