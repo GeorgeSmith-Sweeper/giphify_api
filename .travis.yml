@@ -16,7 +16,7 @@ services:
 
 before_script:
   - cp config/travis.exs config/test.exs
-  - psql -c 'create database travis_ci_test;' -U postgres
+  - psql -c 'create database giphify_api_test;' -U postgres
   - mix do ecto.create, ecto.migrate
 
 script:
